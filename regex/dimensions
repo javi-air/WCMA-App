@@ -1,0 +1,10 @@
+1D:
+awk -F, '$21 ~ /\([0-9]*\.?[0-9]* cm\)/ {print $21}' output.csv | perl -nle '/(\(([\d.]*)[^)]*\))/; $s=$1; $x=$2; print $x'
+
+2D (Also prints length x width of three dimensional objects. I didn't know how to disregard these):
+
+awk -F, '$21 ~ /cm\)/ {print $21}' output.csv | perl -nle '/(\(([\d.]+)[^\d]+([\d.]+)[^)]*\))/; $s=$1; $x=$2; $y=$3; $z=$x*$y; print $z'
+
+3D (prints zero for objects not in 3D):
+
+awk -F, '$21 ~ /cm\)/ {print $21}' output.csv | perl -nle '/(\(([\d.]+)[^\d]+([\d.]*)[^\d]+([\d.]*)[^)]*\))/; $s=$1; $x=$2; $y=$3; $w=$4; $z=$x*$y*$w; print $z'
