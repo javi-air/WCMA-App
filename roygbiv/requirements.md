@@ -1,0 +1,8 @@
+colormath==2.1.1
+decorator==4.0.10
+networkx==1.11
+numpy==1.11.2
+Pillow==3.4.2
+RoyGBiv==0.3.1
+
+pillow, numpy, RoyGBiv
