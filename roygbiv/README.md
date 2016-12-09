@@ -1,23 +1,19 @@
 <snippet>
   <content><![CDATA[
-# ${1:Project Name}
-TODO: Write a project description
+# Palette
+Gets an image and file name and returns and html file with the image's color palette. I modified Giv Parvaneh's roygbiv code to work in python 3+.
 ## Installation
-TODO: Describe the installation process
+Use pip to install the modules on the requirements module
 ## Usage
-TODO: Write usage instructions
-## Contributing
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-## History
-TODO: Write history
+```
+python3 palette_html.py [insert image file] [insert output file]
+
+open [output file]
+```
 ## Credits
-TODO: Write credits
-## License
-TODO: Write license
+Giv Parvaneh
+## Future
+I plan on assigning a name to the colors instead of just having a hexadecimal.
 ]]></content>
   <tabTrigger>readme</tabTrigger>
 </snippet>
