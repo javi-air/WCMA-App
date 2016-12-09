@@ -1,5 +1,5 @@
 <snippet>
-  <content><![CDATA[
+ 
 # Palette
 Gets an image and file name and returns and html file with the image's color palette. I modified Giv Parvaneh's roygbiv code to work in python 3+.
 ## Installation
