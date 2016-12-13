@@ -7,9 +7,9 @@ Clone repo
 Use pip to install the modules on the requirements module
 ## Usage
 ```
-python3 palette_html.py [insert image file] [insert output file]
+python3 palette_html.py [insert image file] 
 
-open [output file]
+open [image name].html
 ```
 ## Credits
 Giv Parvaneh
