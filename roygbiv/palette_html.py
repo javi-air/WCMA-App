@@ -19,6 +19,5 @@ def img_to_html(img, fil):
 
 
 if __name__ == "__main__":
-    img_to_html(sys.argv[1], sys.argv[2])
-    if not sys.argv[2]:
-        raise Exception('Must provide filename in constructor')
+    fil = sys.argv[1][:sys.argv[1].find('.')] + ".html"
+    img_to_html(sys.argv[1], fil)

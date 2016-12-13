@@ -160,12 +160,12 @@ def rgb_to_CSS3(tpl):
     return nearest_color(tpl,CSS3)
 
 def nearest_color(tpl,Map):
-    min_distance = None
+    min_dst = None
     for key in Map:
         r, g, b = hex_to_rgb(Map[key])
-        distance = distance(tpl,(r,g,b))
-        if min_distance is None or distance < min_distance:
-            min_distance = distance
+        dst = distance(tpl,(r,g,b))
+        if min_dst is None or dst < min_dst:
+            min_dst = dst
             near_color = key
     return near_color
 
