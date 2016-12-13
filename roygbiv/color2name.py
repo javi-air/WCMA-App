@@ -1,4 +1,4 @@
-# Src: http://www.w3schools.com/html/html_asp
+# Source: https://www.w3.org/TR/css3-color/#svg-color
 CSS3 = {}
 CSS3["AliceBlue"] = "#F0F8FF"
 CSS3["AntiqueWhite"] = "#FAEBD7"
@@ -156,19 +156,18 @@ def hex_to_rgb(s):
 def distance(tpl1, tpl2):
     return(((tpl1[0]-tpl2[0])**2+(tpl1[1]-tpl2[1])**2+(tpl1[2]-tpl2[2])**2)**0.5)
 
-
 def rgb_to_CSS3(tpl):
     return nearest_color(tpl,CSS3)
 
 def nearest_color(tpl,Map):
-    mindiff = None
+    min_distance = None
     for key in Map:
         r, g, b = hex_to_rgb(Map[key])
-        diff = distance(tpl,(r,g,b))
-        if mindiff is None or diff < mindiff:
-            mindiff = diff
-            mincolorname = key
-    return mincolorname
+        distance = distance(tpl,(r,g,b))
+        if min_distance is None or distance < min_distance:
+            min_distance = distance
+            near_color = key
+    return near_color
 
 if __name__ == "__main__":
     color = (199,194,158)
