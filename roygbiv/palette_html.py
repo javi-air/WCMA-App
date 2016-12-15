@@ -14,7 +14,7 @@ def img_to_html(img, fil):
         fin.write('<div class="box" style="width:100px;height:100px;background-color:{};">{}\n{}</div>\n'.format(average_hex, average_hex, rgb_to_crayola(roy.get_average_rgb())))
         fin.write('<p style="font-family:\'Quicksand\', sans-serif;">Color Palette</p>\n')
         for color in roy.get_palette_hex():
-            fin.write('<div class="box" style="margin-right:10px;float:left;width:100px;height:100px;background-color:{0};">{1}\n{2}</div>'.format(rgb_to_crayola(hex_to_rgb(color)),color,rgb_to_crayola(hex_to_rgb(color))))
+            fin.write('<div class="box" style="margin-right:10px;float:left;width:100px;height:100px;background-color:{0};">{1}\n{2}</div>'.format(crayola[rgb_to_crayola(hex_to_rgb(color))],color,rgb_to_crayola(hex_to_rgb(color))))
             #Hexadecimal is original decimal
             #background-color is the match on the spectrum
 
