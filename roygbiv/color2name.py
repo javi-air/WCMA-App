@@ -148,6 +148,72 @@ CSS3["WhiteSmoke"] = "#F5F5F5"
 CSS3["Yellow"] = "#FFFF00"
 CSS3["YellowGreen"] = "#9ACD32"
 
+crayola = {}
+crayola["Cornflower"] = "#93CCEA"
+crayola["Lemon Yellow"] = "#FFFF9F"
+crayola["Light Blue"] = "#8FD8D8"
+crayola["Blue-Green"] = "#0095B7"
+crayola["Lavender"] = "#FBAED2"
+crayola["Periwinkle"] = "#C3CDE6"
+crayola["Burnt Sienna"] = "#E97451"
+crayola["Orange"] = "#FF8833"
+crayola["Red-Violet"] = "#BB3385"
+crayola["Raw Umber"] = "#665233"
+crayola["Plum"] = "#8E3179"
+crayola["Spring Green"] = "#ECEBBD"
+crayola["Yellow-Orange"] = "#FFAE42"
+crayola["Brick Red"] = "#C62D42"
+crayola["White"] = "#FFFFFF"
+crayola["Forest Green"] = "#5FA777"
+crayola["Sea Green"] = "#93DFB8"
+crayola["Red-Orange"] = "#FF681F"
+crayola["Sepia"] = "#9E5B40"
+crayola["Orange-Red"] = "#FF5349"
+crayola["Pine Green"] = "#01786F"
+crayola["Yellow"] = "#FBE870"
+crayola["Raw Sienna"] = "#D27D46"
+crayola["Green-Yellow"] = "#F1E788"
+crayola["Gold"] = "#E6BE8A"
+crayola["Violet"] = "#8359A3"
+crayola["Brilliant Rose"] = "#E667CE"
+crayola["Sky Blue"] = "#76D7EA"
+crayola["Indian Red"] = "#B94E48"
+crayola["Melon"] = "#FEBAAD"
+crayola["Goldenrod"] = "#FCD667"
+crayola["Mulberry"] = "#C8509B"
+crayola["Violet-Red"] = "#F7468A"
+crayola["Peach"] = "#FFCBA4"
+crayola["Blue-Violet"] = "#6456B7"
+crayola["Brown"] = "#AF593E"
+crayola["Olive Green"] = "#B5B35C"
+crayola["Maroon"] = "#C32148"
+crayola["Thistle"] = "#EBB0D7"
+crayola["Orange-Yellow"] = "#F8D568"
+crayola["Violet-Blue"] = "#766EC8"
+crayola["Carnation Pink"] = "#FFA6C9"
+crayola["Mahogany"] = "#CA3435"
+crayola["Midnight Blue"] = "#00468C"
+crayola["Burnt Orange"] = "#FF7F49"
+crayola["Copper"] = "#DA8A67"
+crayola["Apricot"] = "#FDD5B1"
+crayola["Yellow-Green"] = "#C5E17A"
+crayola["Navy Blue"] = "#0066CC"
+crayola["Blue"] = "#0066FF"
+crayola["Cadet Blue"] = "#A9B2C3"
+crayola["Gray"] = "#8B8680"
+crayola["Black"] = "#000000"
+crayola["Maize"] = "#F2C649"
+crayola["Orchid"] = "#E29CD2"
+crayola["Aquamarine"] = "#95E0E8"
+crayola["Tan"] = "#D99A6C"
+crayola["Bittersweet"] = "#FE6F5E"
+crayola["Silver"] = "#C9C0BB"
+crayola["Blue-Gray"] = "#C8C8CD"
+crayola["Red"] = "#ED0A3F"
+crayola["Green"] = "#01A368"
+crayola["Salmon"] = "#FF91A4"
+crayola["Green-Blue"] = "#2887C8"
+
 def hex_to_rgb(s):
     # s starts with a #.
     r, g, b = int(s[1:3],16), int(s[3:5], 16),int(s[5:7], 16)
@@ -156,6 +222,8 @@ def hex_to_rgb(s):
 def distance(tpl1, tpl2):
     return(((tpl1[0]-tpl2[0])**2+(tpl1[1]-tpl2[1])**2+(tpl1[2]-tpl2[2])**2)**0.5)
 
+def rgb_to_crayola(tpl):
+    return nearest_color(tpl, crayola)
 def rgb_to_CSS3(tpl):
     return nearest_color(tpl,CSS3)
 
@@ -170,6 +238,5 @@ def nearest_color(tpl,Map):
     return near_color
 
 if __name__ == "__main__":
-    color = (199,194,158)
-    print(rgb_to_CSS3(color))
-    print(nearest_color(color, CSS3))
+    color = hex_to_rgb('#01786F')
+    print(rgb_to_crayola(color))
