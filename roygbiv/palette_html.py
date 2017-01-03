@@ -20,5 +20,6 @@ def img_to_html(img, fil):
 
 
 if __name__ == "__main__":
-    fil = sys.argv[1][:sys.argv[1].find('.')] + ".html"
+    cut = sys.argv[1][::-1][sys.argv[1][::-1].find('.')+1:] #cuts the suffix of image
+    fil = cut[::-1] + '.html' 
     img_to_html(sys.argv[1], fil)

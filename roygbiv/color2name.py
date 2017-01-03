@@ -228,14 +228,8 @@ def rgb_to_CSS3(tpl):
     return nearest_color(tpl,CSS3)
 
 def nearest_color(tpl,Map):
-    min_dst = None
-    for key in Map:
-        r, g, b = hex_to_rgb(Map[key])
-        dst = distance(tpl,(r,g,b))
-        if min_dst is None or dst < min_dst:
-            min_dst = dst
-            near_color = key
-    return near_color
+    c,_ = min([(c, distance(hex_to_rgb(Map[c]),tpl)) for c in Map], key=lambda t: t[1]) 
+    return c
 
 if __name__ == "__main__":
     color = hex_to_rgb('#01786F')
