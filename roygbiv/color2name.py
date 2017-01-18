@@ -1,3 +1,6 @@
+from colormath.color_objects import LabColor
+import colormath.color_diff
+
 # Source: https://www.w3.org/TR/css3-color/#svg-color
 CSS3 = {}
 CSS3["AliceBlue"] = "#F0F8FF"
@@ -219,8 +222,9 @@ def hex_to_rgb(s):
     r, g, b = int(s[1:3],16), int(s[3:5], 16),int(s[5:7], 16)
     return r, g, b
 
-def distance(tpl1, tpl2):
-    return(((tpl1[0]-tpl2[0])**2+(tpl1[1]-tpl2[1])**2+(tpl1[2]-tpl2[2])**2)**0.5)
+def __distance(c1, c2):
+    "Calculate the visual distance between the two colors."
+    return colormath.color_diff.delta_e_cmc(LabColor(*c1), LabColor(*c2))
 
 def rgb_to_crayola(tpl):
     return nearest_color(tpl, crayola)
@@ -228,9 +232,9 @@ def rgb_to_CSS3(tpl):
     return nearest_color(tpl,CSS3)
 
 def nearest_color(tpl,Map):
-    c,_ = min([(c, distance(hex_to_rgb(Map[c]),tpl)) for c in Map], key=lambda t: t[1]) 
+    c,_ = min([(c, __distance(hex_to_rgb(Map[c]),tpl)) for c in Map], key=lambda t: t[1])
     return c
 
 if __name__ == "__main__":
-    color = hex_to_rgb('#01786F')
+    color = hex_to_rgb('#7dac9d')
     print(rgb_to_crayola(color))
